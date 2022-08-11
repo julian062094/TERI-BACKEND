@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from .secretss import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,11 +78,11 @@ WSGI_APPLICATION = 'TERI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST':'localhost',
-        'PORT':'3306',
-        'USER':'root',
-        'PASSWORD':'',
-        'NAME':'django_api',
+        'HOST': HOST,
+        'PORT':PORT,
+        'USER':USER,
+        'PASSWORD':PASSWORD,
+        'NAME':NAME,
         'OPTION':{
                   'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
                   }
