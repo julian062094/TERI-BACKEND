@@ -1,0 +1,5 @@
+HOST='senseholding.co'
+PORT='3306'
+USER='wwsens_teri_bd'
+PASSWORD='@Sense2022'
+NAME='wwsens_teri_bd'
