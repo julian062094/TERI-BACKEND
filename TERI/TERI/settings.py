@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-tyo+b!%s)z%1(%^0*b=z7f+-w-#av0&dcc-#=s931*0jv9$20^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','https://teri-erp.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','teri-erp.herokuapp.com']
 
 
 # Application definition
