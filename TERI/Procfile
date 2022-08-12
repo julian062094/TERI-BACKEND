@@ -1,1 +1,2 @@
 web: gunicorn TERI.wsgi
+web: gunicorn api.wsgi
