@@ -1,2 +1,2 @@
-web: gunicorn TERI.wsgi
-web: gunicorn api.wsgi
+web: gunicorn TERI.wsgi --log-file -
+web: gunicorn api.wsgi --log-file -
