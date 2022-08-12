@@ -1,1 +1,1 @@
-web: gunicorn teri.wsgi
+web: gunicorn TERI.wsgi
