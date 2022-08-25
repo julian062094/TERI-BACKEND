@@ -1,5 +1,6 @@
 from signal import SIG_DFL
 from django.http.response import JsonResponse
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
@@ -21,7 +22,7 @@ class VistaNegocios(View):
             negocios=list(Negocios.objects.filter(id=id).values())
             if len(negocios) > 0:
                 negocio = negocios[0]
-                datos={'message':"",'negocios':negocio}
+                datos={'message':"Success",'negocios':negocio}
             else:
                 datos={'message':"No se encontraron negocios"}
             return JsonResponse(datos)
@@ -61,4 +62,24 @@ class VistaNegocios(View):
             datos={'message':"Success"}
         else:
             datos={'message:': "No se encontraron negocios"}
+        return JsonResponse(datos)
+    
+    
+class Usuarios(View):
+      
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
+    def get(self, request):
+        usuarios=list(User.objects.values())
+        usuario = usuarios[0]
+        datos={'message':"Sucess",'usuarios':usuarios}
+        return JsonResponse(datos)
+    
+    def post(self, request):
+        jd = json.loads(request.body)
+        usuarios=list(User.objects.values())
+        usuario = usuarios[0]
+        datos={'message':"Sucess",'usuarios':jd}
         return JsonResponse(datos)

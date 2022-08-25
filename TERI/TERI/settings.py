@@ -30,6 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CORS_ORIGIN_ALLOW_ALL=True
 
 # Application definition
 
@@ -40,10 +41,30 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #new
+    'django.contrib.sites',
+    # 3rd party app
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    # allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # local
     'api',
+    'corsheaders',
+
 ]
 
+AUTH_USER_MODEL="api.User"
+
+SITE_ID = 1
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -137,3 +158,15 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 #DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+#EMAIL_HOST = 'mail.senseholding.co'
+#EMAIL_USE_TLS = False
+#EMAIL_PORT = 465
+#EMAIL_HOST_USER = 'general@senseholding.co'
+#EMAIL_HOST_PASSWORD = 'L);HNjecn1ntMg{vlBUU^0{&J/fS5hxF3y^,v5c#]7^mYX+_#QLv3@vl?vS+&k|'
